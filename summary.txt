@@ -1,0 +1,65 @@
+Pathogens & Paretheses
+
+Hi, my name is Russell, and I work for a company called BUGS Bioscience.
+
+We're a not-for-profit organisation that's grown out of a research project at St George's hospital in Tooting. We do something called "molecular serotyping", which I'll explain a bit more about shortly, and Clojure is one of the two main programming languages we currently use - and I'm going to say a bit about how we use it soon as well.
+
+But first I wanted to say a little about who BUGS Bioscience is and where it's come from.
+
+So as I say, we're based in St George's in Tooting, which is part of the University of London. And St George's has a few famous alumni:
+
+John Hunter, known as the father of modern surgery whose collection - I don't know if any of you have been to the Hunterian museum? It is floor to ceiling jars of formaldehyde with all sorts of things, animal and human, in them. I'd really recommend it as an unusual day out even though I did leave it feeling a little queasy.
+
+Then there was Edward Jenner - and BUGS Bio is based in the Jenner wing of the hospital - who was the first person to write up his findings on the use of vaccination to prevent Smallpox. It turns out he wasn't the first person to realise you could prevent disease in this way, but he was the first to write it up.
+
+And the final alumni I want to mention - and this is someone I feel a deep personal affinity with, so I was hugely excited to find out I was working at their alma mater: comedian Harry Hill!
+
+---
+
+So within St Georges there has been, for a few years now, a group working on a technique for identifying strains of the disease Streptococcus Pneumoniae, or Strep Pneumo for short.
+
+If you haven't heard of Strep Pneumo - that's probably because it's a vaccine-preventable disease, and so it has been almost completely eradicated in the developed world.
+
+But in the third world, which usually has to wait up to 15 years for new vaccines to become available, it's still a huge problem.
+
+It can infect the lungs, causing pneumonia, it can infect the blood, causing meningitis or septicaemia, or it can cause an infection in the middle ear called otitis media, which can in the most serious cases lead to deafness.
+
+It's the second leading cause of childhood meningitis deaths, and it's the leading cause of childhood pneumonia deaths. Pneumonia, in turn, is one of the two leading causes of death in young children, accounting for 18% of child deaths in developing countries.
+
+---
+
+There are more than 90 different strains, or "serotypes" of the disease, and different vaccines target different serotypes. A vaccine might be "7-valent", meaning it targets 7 specific serotypes, or it might be 9-valent, or 12-valent or so on.
+
+So if you're planning a vaccination program, you really want to know which serotypes are most prevalent in the target population so you've got a good idea of whether your vaccine is going to work. And you want to find out which serotypes are most prevalent after you've run your vaccination program so you know what effect you've had.
+
+But traditional serotyping is a slow, manual process, with some crucial limitations - such as that each individual experiment can only detect the presence of a single serotype - when in fact a sample will probably contain a range of different serotypes in different proportions.
+
+And that's where these things called "micro-arrays" come in, and the technique developed by the
+
+Bacterial
+µ-array
+Group
+At
+St. Georges
+
+---
+
+It's probably a good time to point out that I'm not a scientist, I'm a programmer, so while I'm going to describe to you how micro-arrays work, it will be a desciption filtered through the understanding of a non-scientist - not from the horse's mouth, so to speak.
+
+So a micro-array is a slide with upwards of 10 thousand little dots of DNA printed onto it, using what is basically a fancy inkjet printer.
+
+Each dot of DNA is what's called an Oligonucleotide - which as far as I can work out just means "some nucleotides" - that matches a specific section, usually about 60 bases long, of the Strep Pneumo genome.
+
+And what you do is that you take a sample (usually a nasal swab in the case of strep pneumo) and you dye it with a molecular dye (usually a variety of cyanine, cy3 or cy5 - and in fact most of the time you do two samples at once, on dyed with cy3 and one with cy5). And a molecular dye is just a dye that binds itself to the actual molecules of the target.
+
+So you put the sample on the microarray and leave it in the oven overnight. (It's a special science-y oven though.) And while it's in the oven, a process called hybridization takes place: if there is DNA in the target sample that is complementary to the DNA on one of the oligonucleotide probes, they bind together.
+
+So the next day, all the probes that matched sections of DNA in the target are bound to that DNA, and the ones that didn't aren't. So you wash the slide to get rid of all the unattached DNA, and you shine a light (green for Cy3, red for Cy5) onto the slide, and if the relevant dye is present (because the sample hybridised to the probe) it flouresces.
+
+You take a scan of the array under the red and green light - which looks like this - and use software to extract intensity data for each of the probes, leaving you with a dataset that looks like this.
+
+And using some fancy Bayesian statistics developed by a team of mathematicians in Cambridge, you can use that intensity data to predict both which serotypes are present in the sample as well as their relative proportions.
+
+---
+
+So this, finally, is where the code comes in.

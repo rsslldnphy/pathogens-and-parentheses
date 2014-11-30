@@ -1,0 +1,38 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@font-face {
+  font-family: 'League Gothic';
+  src: url('../../lib/font/league_gothic-webfont.eot');
+  src: url('../../lib/font/league_gothic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../lib/font/league_gothic-webfont.woff') format('woff'),
+  url('../../lib/font/league_gothic-webfont.ttf') format('truetype'),
+  url('../../lib/font/league_gothic-webfont.svg#LeagueGothicRegular') format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,500);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Roboto', sans-serif;
+$mainColor: #000;
+$headingFont: 'League Gothic', Impact, sans-serif;
+$headingColor: #000;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #7AA3CC;
