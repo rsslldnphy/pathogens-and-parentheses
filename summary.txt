@@ -18,7 +18,7 @@ And the final alumni I want to mention - and this is someone I feel a deep perso
 
 So within St Georges there has been, for a few years now, a group working on a technique for identifying strains of the bacteria Streptococcus Pneumoniae, or Strep Pneumo for short.
 
-If you haven't heard of Strep Pneumo - that's probably because it's a vaccine-preventable disease, and so it has been almost completely eradicated in the developed world.
+If you haven't heard of Strep Pneumo - that's probably because it's been almost completely eradicated in the developed world.
 
 But in the third world, which usually has to wait up to 15 years for new vaccines to become available, it's still a huge problem.
 
@@ -28,7 +28,7 @@ It's the second leading cause of childhood meningitis deaths, and it's the leadi
 
 ---
 
-There are more than 90 different strains, or "serotypes" of the disease, and different vaccines target different serotypes. A vaccine might be "7-valent", meaning it targets 7 specific serotypes, or it might be 9-valent, or 12-valent or so on.
+There are more than 90 different strains, or "serotypes" of the bacteria, and different vaccines target different serotypes. A vaccine might be "7-valent", meaning it targets 7 specific serotypes, or it might be 9-valent, or 12-valent or so on.
 
 So if you're planning a vaccination program, you really want to know which serotypes are most prevalent in the target population so you've got a good idea of whether your vaccine is going to work. And you want to find out which serotypes are most prevalent after you've run your vaccination program so you know what effect you've had.
 
@@ -48,7 +48,7 @@ It's probably a good time to point out that I'm not a scientist, I'm a programme
 
 So a micro-array is a slide with upwards of 10 thousand little dots of DNA printed onto it, using what is basically a fancy inkjet printer.
 
-Each dot of DNA is what's called an Oligonucleotide - which as far as I can work out just means "some nucleotides" - that matches a specific section, usually about 60 bases long, of the Strep Pneumo genome.
+Each dot of DNA is what's called an Oligonucleotide - which as far as I can work out just means "some nucleotides" - that matches a specific section, usually about 60 bases long, of the strep pneumo genome.
 
 And what you do is that you take a sample (usually a nasal swab in the case of strep pneumo) and you dye it with a molecular dye (usually a variety of cyanine, cy3 or cy5 - and in fact most of the time you do two samples at once, on dyed with cy3 and one with cy5). And a molecular dye is just a dye that binds itself to the actual molecules of the target.
 
