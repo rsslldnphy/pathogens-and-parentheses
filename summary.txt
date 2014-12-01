@@ -62,4 +62,14 @@ And using some fancy Bayesian statistics developed by a team of mathematicians i
 
 ---
 
-So this, finally, is where the code comes in.
+So this, finally, is where the code comes in. But before you get too excited, I'm afraid the fancy Bayesian stuff isn't done in Clojure. Yet. At the moment, and at least for a while yet, that's all done in R.
+
+---
+
+So I'm going to give a quick description of our architecture so far, and talk about some of the things we've found easy and the things we've found hard.
+
+And, actually, we're still very early on in our journey... I joined a little over six weeks ago, so so far it's been a case of starting to put skin on the bones of our walking skeleton.
+
+So as I say the meat of the analysis is an R script. As well as this we have the user-facing part of our software, which is a compojure web-app. And rather than have the web-app call the R code directly, we've wrapped it up in a separate Clojure service that reads requests for analysis from an SQS queue. As you can imagine, there's a lot of complexity involved in the analysis, so it's been good to isolate it from the more mundane concerns of a web application.
+
+
