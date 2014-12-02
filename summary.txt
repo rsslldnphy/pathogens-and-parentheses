@@ -30,16 +30,6 @@ There are more than 90 different "serotypes" of the bacteria, and different vacc
 
 So if you're planning a vaccination program, you really want to know which serotypes are most prevalent in the target population so you've got a good idea of whether your vaccine is going to work. And you want to find out which serotypes are most prevalent after you've run your vaccination program so you know what effect you've had.
 
-But traditional serotyping is a slow, manual process, with some crucial limitations - such as that each individual technique can only detect the presence of the most abundant serotype in a sample - when in fact it will probably contain a range of different serotypes in different proportions.
-
-And that's where these things called "micro-arrays" come in, and the technique developed by the
-
-Bacterial
-µ-array
-Group
-At
-St. Georges
-
 ---
 
 It's probably a good time to point out that I'm not a scientist, I'm a programmer, so while I'm going to describe to you how micro-arrays work, it will be a desciption filtered through the understanding of a non-scientist - not from the horse's mouth, so to speak.
