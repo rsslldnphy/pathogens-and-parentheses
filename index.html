@@ -136,8 +136,113 @@
         <h2>Architecture</h2>
         <img src="img/Architecture.jpg"/>
         </section>
-      </div>
+        <section>
+        <h2>User-facing app</h2>
+        <ul>
+          <li>Single page Reagent app</li>
+          <li>JSON API using Liberator</li>
+          <li>Wired up with Stuart Sierra's component library</li>
+        </ul>
+        </section>
+        <section>
+        <h2>Components: lessons learnt</h2>
+        <ul>
+          <li>Comes at a cost of boilerplate code</li>
+          <li>Functions that take lots of dependencies as arguments</li>
+          <li>Can obscure what's important in a function signature</li>
+        </ul>
+        </section>
+        <section>
+        <h2>Components: lessons learnt</h2>
+        <pre>
+          <code data-trim class="clojure">
+(defn process-upload
+  [db s3 sqs params]
+  (->> (new-analysis params)
+       (uploads/create-upload db s3)
+       (analyses/queue-analysis db sqs s3)))
+          </code>
+        </pre>
+        </section>
+        <section>
+        <h2>Components: lessons learnt</h2>
+        <pre>
+          <code data-trim class="clojure">
+(defn process-upload
+  [db s3 sqs params]
+  (->> (new-analysis params)
+       (db/insert-record db)
+       (s3/archive-file s3)
+       (sqs/queue-analysis sqs)
+       (db/update-record db)))
+          </code>
+        </pre>
+        </section>
+        <section>
+        <h2>Components: lessons learnt</h2>
+        <pre>
+          <code data-trim class="clojure">
+(defprotocol IUploadService
+  (process-upload [this params]))
 
+(defrecord UploadService [db s3 sqs]
+  IUploadService
+  (process-upload
+    [this params]
+    (->> (new-analysis params)
+         (db/insert-record db)
+         (s3/archive-file s3)
+         (sqs/queue-analysis sqs)
+         (db/update-record db))))
+          </code>
+        </pre>
+        </section>
+        <section>
+        <h2>Single page app with Reagent</h2>
+        <ul>
+          <li>The React/Reagent model is really exciting!</li>
+          <li>However, without a clear structure, you risk spaghetti code</li>
+          <li>This is something we're still working on...</li>
+        </ul>
+        </section>
+        <section>
+          <h2>Mundane stuff</h2>
+          <p>Web story still feels rough around the edges.</p>
+          <p>Features you're used to having provided, you find you need to roll your own.</p>
+          <p>But, we're hopeful that Clojure will prove worth this upfront cost.</p>
+        </section>
+        <section>
+        <h2>Plug!</h2>
+        <h3>Tern - migrations as data</h3>
+        <img src="/img/tern.jpg" height="300px"/>
+        <p><a href="https://github.com/bugsbio/lein-tern">https://github.com/bugsbio/lein-tern</a></p>
+        </section>
+        <section>
+        <h2>Plug!</h2>
+        <h3>Tern - migrations as data</h3>
+        <pre>
+        <code data-trim class="clojure">
+{:up
+ [{:create-table :cats
+   :columns [[:id   "BIGSERIAL" "PRIMARY KEY"]
+             [:name "TEXT"      "NOT NULL"]
+             [:paws "INT"]]}]
+ :down
+ [{:drop-table :cats}]}
+        </code>
+        </pre>
+        <p><a href="https://github.com/bugsbio/lein-tern">https://github.com/bugsbio/lein-tern</a></p>
+
+
+        </section>
+        <section>
+        <h2>Thank you :-)</h2>
+
+        <p>I'm <a href="http://twitter.com/rsslldnphy">@rsslldnphy</a> on Twitter and Github</p>
+        <p>We're <a href="http://twitter.com/bugsbio_dev">@bugsbio_dev</a> on Twitter and <a href="https://github.com/bugsbio">github.com/bugsbio</a> on Github</p>
+        <p>The slides are up at <a href="https://github.com/rsslldnphy/pathogens-and-parentheses">github.com/rsslldnphy/pathogens-and-parentheses</a></p>
+        </section>
+      </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>

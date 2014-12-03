@@ -9,6 +9,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+h2 {
+  padding-bottom: 30px !important; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -162,5 +165,8 @@ body {
   font-weight: bold; }
   .main-title .author a, .main-title .author a:hover {
     color: #003366; }
+
+pre {
+  box-shadow: none !important; }
 
 /*# sourceMappingURL=bugs.css.map */
