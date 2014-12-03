@@ -79,7 +79,7 @@
         </section>
 
         <section>
-        <h2><i>Streptococcuss Pneumoniae</i></h2>
+        <h2><i>Streptococcus pneumoniae</i></h2>
         <img src="img/streppneumo.jpg" width="300px"/>
         <p>A huge problem in the third world, causing:
         </p>
@@ -91,7 +91,7 @@
         </section>
 
         <section>
-        <h2><i>Streptococcuss Pneumoniae</i></h2>
+        <h2><i>Streptococcus pneumoniae</i></h2>
         <img src="img/streppneumo.jpg" width="300px"/>
         <ul>
           <li>The second leading cause of childhood meningitis deaths</li>
@@ -102,7 +102,7 @@
         </section>
 
         <section>
-        <h2>Serotypes of <i>strep pneumo</i></h2>
+        <h2>Serotypes of <i>Streptococcus pneumoniae</i></h2>
         <ul>
           <li>More than 90 different serotypes</li>
           <li>Each vaccine targets a different set of serotypes</li>
@@ -114,7 +114,7 @@
           <img src="img/microarray.jpg" width="300px"/>
           <ul>
             <li>Printed with 8x15000 (120,000) spots of DNA, or "oligonucleotide probes"</li>
-            <li>Each probe targets a specific region in the <i>strep pneumo</i> genome</li>
+            <li>Each probe targets a specific region in the <i>Streptococcus pneumoniae</i> genome</li>
           </ul>
         </section>
         <section>
@@ -129,8 +129,16 @@
         </ol>
         </section>
         <section>
-        <h2>Analysing the results</h2>
+        <h2>The results</h2>
         <img src="img/results.jpg" width="600px"/>
+        </section>
+        <section>
+        <h2>The code!</h2>
+        <ul>
+        <li>Overall architecture</li>
+        <li>Challenges so far</li>
+        <li>Our first open source project</li>
+      </ul>
         </section>
         <section>
         <h2>Architecture</h2>
@@ -160,7 +168,7 @@
   [db s3 sqs params]
   (->> (new-analysis params)
        (uploads/create-upload db s3)
-       (analyses/queue-analysis db sqs s3)))
+       (analyses/queue-analysis db s3 sqs)))
           </code>
         </pre>
         </section>
@@ -173,6 +181,8 @@
   (->> (new-analysis params)
        (db/insert-record db)
        (s3/archive-file s3)
+       (agilent/parse)
+       (s3/record-input s3)
        (sqs/queue-analysis sqs)
        (db/update-record db)))
           </code>
@@ -192,8 +202,10 @@
     (->> (new-analysis params)
          (db/insert-record db)
          (s3/archive-file s3)
+         (agilent/parse)
+         (s3/record-input s3)
          (sqs/queue-analysis sqs)
-         (db/update-record db))))
+         (db/update-record db)))
           </code>
         </pre>
         </section>
