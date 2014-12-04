@@ -12,10 +12,6 @@
 // ---------------------------------------------
 
 // Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 
 h2 { padding-bottom: 30px !important; }
 
@@ -58,7 +54,6 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 
 .main-title {
   .author {
-    font-family: 'News Cycle', sans-serif;
     font-weight: bold;
     a, a:hover { color: #003366; }
   }
